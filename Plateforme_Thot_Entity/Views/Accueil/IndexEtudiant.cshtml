@@ -1,0 +1,46 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Acceuil Etudiant</title>
+</head>
+<body>
+  
+    <div style="width:55%; margin:auto;">
+        <center><h2>La liste de vos cours</h2><h3>Niveau Scolaire: @ViewBag.Niveau_Scolaire</h3></center>
+        <div ><a href="#"><img src="~/Images/shopping-cart.png" style="width:50px; height:50px;" onclick="@("location.href='"+ Url.Action("Index", "Panier")+ "'")" /></a></div>
+        <hr /><br />
+        @using (@Html.BeginForm())
+        {
+            if (ViewBag.Niveau_Scolaire == "Primaire")
+            {
+                @Html.Partial("../Shared/Calcul");
+                @Html.Partial("../Shared/Hygiène");
+                @Html.Partial("../Shared/Moral");
+            }
+            else if (ViewBag.Niveau_Scolaire == "Secondaire")
+            {
+                @Html.Partial("../Shared/Mathematique");
+                @Html.Partial("../Shared/Science_naturel");
+                @Html.Partial("../Shared/Geographie");
+            }
+            else
+            {
+                @Html.Partial("../Shared/Programmation");
+                @Html.Partial("../Shared/Asservissement");
+                @Html.Partial("../Shared/Electrotechnique");
+            }
+        }
+
+
+        }
+    </div>
+    <script src="~/JS/JavaScript.js"></script>
+</body>
+</html>

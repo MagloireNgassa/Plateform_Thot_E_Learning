@@ -1,0 +1,30 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Changer_login</title>
+</head>
+<body>
+    <div style=" width:30%; margin:auto">
+        <h1>PREMIÈRE CONNEXION</h1><hr /><br />
+        <h2>Insérer un nouveau Login et un nouveau Password</h2><br />
+    </div>
+    <div style=" width:30%; margin:auto">
+        @using (@Html.BeginForm("Changer_login", "Connexion_etudiant", FormMethod.Post))
+        {
+            <table>
+                <tr><td>@Html.Label("New Login")</td><td>@Html.TextBox("newlogin")</td></tr>
+                <tr><td>@Html.Label("New Password")</td><td>@Html.TextBox("newpassword")</td></tr>
+                <tr><td><input type="submit" name=" insert" value="CONNEXION" /></td></tr>
+            </table>
+        }
+        <br />  @ViewBag.info
+    </div>
+</body>
+</html>

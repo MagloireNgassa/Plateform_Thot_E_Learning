@@ -1,0 +1,37 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div style=" width:30%; margin:auto">
+        <h1>CONNEXION</h1><hr /><br />
+
+        @using (@Html.BeginForm())
+        {
+            <div>
+
+                
+            </div><br>
+
+
+            <table>
+                <tr><td>@Html.Label("Login")</td><td>@Html.TextBox("login")</td></tr>
+                <tr><td>@Html.Label("Password")</td><td>@Html.Password("password")</td></tr>
+                <tr><td><input type="submit" name="insert" value="CONNEXION" /></td></tr>
+            </table>
+        }
+         
+
+
+        <br />  @ViewBag.log
+    </div>
+</body>
+</html>

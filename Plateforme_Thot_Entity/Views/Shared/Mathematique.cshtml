@@ -1,0 +1,21 @@
+﻿ 
+ 
+    <div style="width:100%; height:250px;">
+        <div style="float: right;">
+            <h3>Titre du cours: Mathématique</h3><br />
+            <p>Description: Ici vous avez la description complete du cours</p>
+            <input type="Button" value="ajout au panier" onclick="@("location.href='"+ Url.Action("Check", "Accueil",new {cour="Mathématique"})+ "'")" />
+            <br />
+
+            <div>
+                @TempData["Mathematiques"]
+            </div>
+
+        </div>
+        <div>
+
+            <img src="~/Images/Mathématique.jpg" style="width:45%; height:150%; " /> 
+        </div>
+    </div> <br /><br /><hr /><br />
+ 
+

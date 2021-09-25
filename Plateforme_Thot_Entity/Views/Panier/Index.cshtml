@@ -1,0 +1,43 @@
+﻿@model IEnumerable<Plateforme_Thot_Entity.Models.Affiche>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Votre panier</title>
+</head>
+<body>
+    <div>
+        <div style=" width:40%; margin:auto">
+            <h1>Votre Panier</h1><hr /><br />
+            <table border='1' style="text-align:center;">
+                <th>Image</th>
+                <th>Nom du cours</th>
+                <th>Quantité</th>
+                <th>Update quantité</th>
+                <th>Supprimer</th>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td><img src="~/Images/@Html.DisplayFor(modelItem => item.Images)" style="width:80px;height:65px;" /></td>
+                        <td>@Html.DisplayFor(modelItem => item.Nom)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Quantite)</td>
+                        <td>
+                            <button onclick="@("location.href='"+ Url.Action("Update", "Panier",new {cour="plus",id = @Html.DisplayFor(modelItem => item.Id_Produit)})+ "'")">+</button>
+                            <button onclick="@("location.href='"+ Url.Action("Update", "Panier",new {cour="moins",id = @Html.DisplayFor(modelItem => item.Id_Produit)})+ "'")">-</button>
+                        </td>
+                        <td><button onclick="@("location.href='"+ Url.Action("Update", "Panier",new {cour="corbeille",id = @Html.DisplayFor(modelItem => item.Id_Produit)})+ "'")"><img src="~/Images/corbeille.png" style="width:25px;height:25px;" /></button></td>
+                    </tr>
+                }
+
+            </table>
+            @ViewBag.verifie
+        </div>
+    </div>
+</body>
+</html>

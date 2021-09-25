@@ -1,0 +1,54 @@
+﻿@model Plateforme_Thot_Entity.Models.CollecteItems
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width" />
+        <title>Index</title>
+    </head>
+    <body>
+        <div style=" width:30%; margin:auto">
+            <div>
+                <h1>INSCRIPTION ETUDIANT</h1><hr /><br />
+            </div>
+            <div>
+
+
+
+                @using (@Html.BeginForm())
+                {
+
+                    <table>
+                        <tr><td>@Html.Label("Nom")</td><td>@Html.TextBox("nom")</td></tr>
+                        <tr><td>@Html.Label("Prenom")</td><td>@Html.TextBox("prenom")</td></tr>
+                        <tr><td>@Html.Label("Niveau Scolaire")</td><td>@Html.EnumDropDownListFor(model => model.Item, "Select")</td></tr>
+                        <tr><td>@Html.Label("Email")</td><td>@Html.TextBox("email")</td></tr>
+                        <tr><td><input type="submit" name=" insert" value="ENREGISTRER" /></td></tr>
+
+                    </table>
+                    
+
+                }
+            </div><br />
+            <h3>@ViewBag.selectinfo</h3><br />
+            <h3>@ViewBag.selectinfo1</h3><br />
+
+
+
+            <div>
+                <h2>VOUS ÊTES DEJA INSCRIT!!!!</h2><hr />
+
+                @using (@Html.BeginForm("Index", "Connexion_etudiant", FormMethod.Get))
+                {
+                    <input type="submit" name="suivant" id="suivant" value="CONNEXION" />
+                }
+
+            </div>
+        </div>
+    
+    </body>
+</html>
